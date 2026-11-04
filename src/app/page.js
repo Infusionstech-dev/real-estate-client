@@ -1,36 +1,41 @@
-const brandColorSwatches = [
-  { colorName: "gold", swatchClass: "bg-gold" },
-  { colorName: "gold-hover", swatchClass: "bg-gold-hover" },
-  { colorName: "section-dark", swatchClass: "bg-section-dark" },
-  { colorName: "section-light", swatchClass: "bg-section-light" },
-  { colorName: "ink", swatchClass: "bg-ink" },
-  { colorName: "muted", swatchClass: "bg-muted" },
-];
+import Button from "@/components/ui/Button";
+import Container from "@/components/ui/Container";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function HomePage() {
   return (
-    <main className="site-container py-16">
-      <p className="text-sm font-medium uppercase tracking-[0.3em] text-gold">
-        Established 2024
-      </p>
-      <h1 className="mt-4 font-heading text-6xl">Design. Build. Transform.</h1>
-      <p className="mt-4 max-w-xl text-muted">
-        Complete Interior Design, Construction & Property Solutions Crafted
-        with Precision.
-      </p>
+    <main>
+      {/* Light section preview */}
+      <Container as="section" className="py-16">
+        <SectionHeading
+          eyebrowText="Our Journey"
+          titleText="Comprehensive Solutions"
+          align="center"
+        />
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <Button href="/contact">Contact Us</Button>
+          <Button size="small">View All</Button>
+          <Button size="large">View All Services</Button>
+        </div>
+        <div className="mx-auto mt-6 max-w-xs">
+          <Button fullWidth>View Details</Button>
+        </div>
+      </Container>
 
-      <button className="mt-8 rounded-lg bg-gold px-8 py-3 font-semibold text-white hover:bg-gold-hover">
-        Contact Us
-      </button>
-
-      <div className="mt-12 grid grid-cols-3 gap-4">
-        {brandColorSwatches.map((brandColor) => (
-          <div key={brandColor.colorName}>
-            <div className={`h-16 rounded-lg border ${brandColor.swatchClass}`} />
-            <p className="mt-2 text-sm">{brandColor.colorName}</p>
+      {/* Dark section preview */}
+      <section className="bg-section-dark py-16">
+        <Container>
+          <SectionHeading
+            eyebrowText="Why Space"
+            titleText="The Standards of Excellence"
+            theme="dark"
+          />
+          <div className="mt-10 flex gap-4">
+            <Button variant="outline">Explore Projects</Button>
+            <Button>Let's Connect</Button>
           </div>
-        ))}
-      </div>
+        </Container>
+      </section>
     </main>
   );
 }
