@@ -1,4 +1,6 @@
 import { Playfair_Display, Poppins } from "next/font/google";
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 import "./globals.css";
 
 const playfairDisplay = Playfair_Display({
@@ -26,7 +28,11 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${playfairDisplay.variable} ${poppins.variable}`}
     >
-      <body className="font-body text-ink antialiased">{children}</body>
+      <body className="font-body text-ink antialiased">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
