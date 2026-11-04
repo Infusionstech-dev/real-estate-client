@@ -32,7 +32,7 @@ export default function HomePage() {
           />
           <div className="mt-10 flex gap-4">
             <Button variant="outline">Explore Projects</Button>
-            <Button>Let's Connect</Button>
+            <Button>Let&apos;s Connect</Button>
           </div>
         </Container>
       </section>
