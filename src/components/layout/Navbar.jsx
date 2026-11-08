@@ -13,6 +13,11 @@ export default function Navbar() {
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
+  // "Projects" also stays active on /projects/all and /projects/[projectSlug]
+  const isLinkActive = (linkHref) =>
+    currentPathname === linkHref ||
+    (linkHref !== "/" && currentPathname.startsWith(`${linkHref}/`));
+
   return (
     <header className="sticky top-0 z-50 bg-black/95 backdrop-blur">
       <nav className="site-container flex h-20 items-center justify-between">
@@ -21,7 +26,7 @@ export default function Navbar() {
         {/* Desktop links */}
         <ul className="hidden items-center gap-9 lg:flex">
           {mainNavLinks.map((navLink) => {
-            const isActiveLink = currentPathname === navLink.linkHref;
+            const isActiveLink = isLinkActive(navLink.linkHref);
 
             return (
               <li key={navLink.linkHref}>
@@ -85,7 +90,7 @@ export default function Navbar() {
       >
         <ul className="site-container flex flex-col py-4">
           {mainNavLinks.map((navLink) => {
-            const isActiveLink = currentPathname === navLink.linkHref;
+            const isActiveLink = isLinkActive(navLink.linkHref);
 
             return (
               <li key={navLink.linkHref}>

@@ -29,17 +29,28 @@ function ClientInitials({ clientName }) {
   );
 }
 
-export default function TestimonialsSection() {
+/**
+ * Client reviews. Defaults to the Home version ("Voices / Client Experiences", all reviews).
+ * Project pages pass their own heading and a single review.
+ */
+export default function TestimonialsSection({
+  eyebrowText = "Voices",
+  titleText = "Client Experiences",
+  testimonials = clientTestimonials,
+}) {
+  const hasSingleTestimonial = testimonials.length === 1;
+
   return (
     <section className="bg-section-light py-24 md:py-32">
       <Container className="grid gap-12 lg:grid-cols-[0.8fr_2fr] lg:items-start">
         <RevealOnScroll direction="left">
-          <SectionHeading eyebrowText="Voices" titleText="Client Experiences" />
+          <SectionHeading eyebrowText={eyebrowText} titleText={titleText} />
         </RevealOnScroll>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {clientTestimonials.map((clientTestimonial, testimonialIndex) => {
-            const isElevatedCard = testimonialIndex % 2 === 1;
+        <div className={`grid gap-6 ${hasSingleTestimonial ? "" : "md:grid-cols-2"}`}>
+          {testimonials.map((clientTestimonial, testimonialIndex) => {
+            const isElevatedCard =
+              hasSingleTestimonial || testimonialIndex % 2 === 1;
 
             return (
               <RevealOnScroll
