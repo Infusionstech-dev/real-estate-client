@@ -124,36 +124,6 @@ export const serviceCards = [
   },
 ];
 
-// projectLayout: "large" (big left card), "small", "wide" (two columns)
-export const portfolioProjects = [
-  {
-    projectTitle: "The Onyx Residence",
-    projectCategory: "Residential",
-    projectImage: "/images/home/hero-onyx-residence.jpg",
-    projectLayout: "large",
-  },
-  {
-    projectTitle: "Executive Hub",
-    projectImage: "/images/home/hero-executive-hub.jpg",
-    projectLayout: "small",
-  },
-  {
-    projectTitle: "Minimalist Culinary",
-    projectImage: "/images/home/hero-minimalist-culinary.jpg",
-    projectLayout: "small",
-  },
-  {
-    projectTitle: "Boutique Concept",
-    projectImage: "/images/home/hero-boutique-concept.jpg",
-    projectLayout: "small",
-  },
-  {
-    projectTitle: "Sky Garden Lofts",
-    projectImage: "/images/home/hero-sky-garden-lofts.jpg",
-    projectLayout: "wide",
-  },
-];
-
 export const beforeAfterImages = {
   beforeImage: "/images/home/before-after-before.jpg",
   beforeAlt: "Living room under construction with bare concrete walls",

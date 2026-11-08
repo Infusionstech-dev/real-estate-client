@@ -12,6 +12,18 @@
   /* Floating animation – use as animate-float */
   --animate-float: float 6s ease-in-out infinite;
 
+  /* Slow zoom on the project details photo – use as animate-project-hero-zoom */
+  --animate-project-hero-zoom: project-hero-zoom 12s ease-out forwards;
+
+  @keyframes project-hero-zoom {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.08);
+    }
+  }
+
   @keyframes float {
     0%,
     100% {
