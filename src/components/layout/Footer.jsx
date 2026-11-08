@@ -2,16 +2,15 @@ import Link from "next/link";
 import Button from "@/components/ui/Button";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import SiteLogo from "@/components/layout/SiteLogo";
-import { footerLegalLinks, footerNavLinks } from "@/data/navigation";
+import {
+  footerLegalLinks,
+  footerNavLinks,
+  footerSocialLinks,
+} from "@/data/navigation";
 
 const footerLinkColumns = [
   { columnTitle: "Navigation", columnLinks: footerNavLinks },
   { columnTitle: "Legal", columnLinks: footerLegalLinks },
-];
-
-const footerSocialLinks = [
-  { socialLabel: "Share", socialHref: "#", socialIcon: "share" },
-  { socialLabel: "Website", socialHref: "#", socialIcon: "globe" },
 ];
 
 // Cached so the year is read once per build/revalidation (required with cacheComponents)
@@ -21,23 +20,56 @@ async function CopyrightYear() {
 }
 
 function SocialIcon({ socialIcon }) {
-  if (socialIcon === "share") {
-    return (
-      <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-        <circle cx="18" cy="5" r="2.5" />
-        <circle cx="6" cy="12" r="2.5" />
-        <circle cx="18" cy="19" r="2.5" />
-        <path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4" />
-      </svg>
-    );
-  }
+  const iconProps = {
+    viewBox: "0 0 24 24",
+    className: "h-5 w-5",
+    "aria-hidden": true,
+  };
+  const lineProps = {
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.7,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+  };
 
-  return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z" />
-    </svg>
-  );
+  switch (socialIcon) {
+    case "mail":
+      return (
+        <svg {...iconProps} {...lineProps}>
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="M3.5 6.5l8.5 6 8.5-6" />
+        </svg>
+      );
+    case "facebook":
+      return (
+        <svg {...iconProps} fill="currentColor">
+          <path d="M12 2a10 10 0 0 0-1.6 19.87v-7h-2.5V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.45 2.87h-2.35v7A10 10 0 0 0 12 2z" />
+        </svg>
+      );
+    case "instagram":
+      return (
+        <svg {...iconProps} {...lineProps}>
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" />
+        </svg>
+      );
+    case "linkedin":
+      return (
+        <svg {...iconProps} {...lineProps}>
+          <rect x="3" y="3" width="18" height="18" rx="3" />
+          <path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.3c0-1.6 1.1-2.8 2.6-2.8s2.4 1 2.4 2.8V17" />
+        </svg>
+      );
+    default:
+      return (
+        <svg {...iconProps} {...lineProps}>
+          <circle cx="12" cy="12" r="9" />
+          <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z" />
+        </svg>
+      );
+  }
 }
 
 export default function Footer() {
@@ -51,13 +83,13 @@ export default function Footer() {
             Defining the future of luxury living through architectural precision
             and interior artistry.
           </p>
-          <ul className="mt-6 flex gap-3">
+          <ul className="mt-6 flex gap-2">
             {footerSocialLinks.map((socialLink) => (
               <li key={socialLink.socialLabel}>
                 <a
                   href={socialLink.socialHref}
                   aria-label={socialLink.socialLabel}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 transition-colors hover:border-gold hover:text-gold"
+                  className="flex h-10 w-10 items-center justify-center text-white transition-colors hover:text-gold"
                 >
                   <SocialIcon socialIcon={socialLink.socialIcon} />
                 </a>
