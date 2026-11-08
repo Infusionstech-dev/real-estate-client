@@ -46,7 +46,7 @@ export default function Footer() {
       <div className="site-container grid gap-12 pb-12 md:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.8fr_1.4fr]">
         {/* Brand */}
         <RevealOnScroll>
-          <SiteLogo />
+          <SiteLogo size="footer" />
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/80">
             Defining the future of luxury living through architectural precision
             and interior artistry.
