@@ -5,7 +5,10 @@ import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { serviceCards } from "@/data/home";
 
-export default function ServicesSection({ showViewAllButton = true }) {
+export default function ServicesSection({
+  showViewAllButton = true,
+  isPageHeading = false, // true on /services, where this is the main heading
+}) {
   return (
     <section className="bg-section-light py-24 md:py-32">
       <Container>
@@ -13,6 +16,7 @@ export default function ServicesSection({ showViewAllButton = true }) {
           <SectionHeading
             eyebrowText="Our Services"
             titleText="From Vision to Completion"
+            titleTag={isPageHeading ? "h1" : "h2"}
           />
           {showViewAllButton && (
             <Button href="/services" className="self-start sm:self-auto">

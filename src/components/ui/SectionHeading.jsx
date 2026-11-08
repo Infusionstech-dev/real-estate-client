@@ -14,6 +14,7 @@ export default function SectionHeading({
   align = "left",
   theme = "light",
   className = "",
+  titleTag: TitleTag = "h2",
 }) {
   return (
     <div className={`${headingAlignClasses[align]} ${className}`}>
@@ -22,11 +23,11 @@ export default function SectionHeading({
           {eyebrowText}
         </p>
       )}
-      <h2
+      <TitleTag
         className={`mt-3 font-heading text-4xl leading-tight md:text-5xl ${titleThemeClasses[theme]}`}
       >
         {titleText}
-      </h2>
+      </TitleTag>
     </div>
   );
 }
