@@ -21,7 +21,7 @@ export default function Button({
   ...buttonProps
 }) {
   const buttonClasses = [
-    "inline-flex items-center justify-center rounded-lg font-semibold transition-colors duration-200",
+    "inline-flex items-center justify-center whitespace-nowrap rounded-lg font-semibold transition-colors duration-200",
     buttonVariantClasses[variant],
     buttonSizeClasses[size],
     fullWidth ? "w-full" : "",

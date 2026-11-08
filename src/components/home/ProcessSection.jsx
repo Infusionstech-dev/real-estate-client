@@ -101,9 +101,12 @@ export default function ProcessSection() {
           <ProcessArrow positionClass="-bottom-20 left-[32%]" isFlipped />
           <ProcessArrow positionClass="-bottom-20 left-[72%]" isFlipped />
 
-          <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          <ol className="flex flex-wrap justify-center gap-5">
             {processSteps.map((processStep, stepIndex) => (
-              <li key={processStep.stepTitle}>
+              <li
+                key={processStep.stepTitle}
+                className="w-full sm:w-[calc(50%-0.625rem)] md:w-[calc(33.333%-0.834rem)] lg:w-[calc(20%-1rem)]"
+              >
                 <RevealOnScroll delay={stepIndex * 120} className="h-full">
                   <article className="card-lift flex h-full flex-col items-center rounded-2xl bg-section-light px-5 py-8 text-center shadow-[0_10px_30px_-12px_rgb(0_0_0/0.18)] ring-1 ring-black/5">
                     <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-ink shadow-md">

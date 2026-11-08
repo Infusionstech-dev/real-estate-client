@@ -5,7 +5,7 @@ import { clientTestimonials } from "@/data/home";
 
 function FiveStars() {
   return (
-    <div className="flex gap-1 text-gold" aria-label="5 out of 5 stars">
+    <div className="flex gap-1 text-gold" role="img" aria-label="5 out of 5 stars">
       {[1, 2, 3, 4, 5].map((starNumber) => (
         <svg key={starNumber} viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
           <path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z" />

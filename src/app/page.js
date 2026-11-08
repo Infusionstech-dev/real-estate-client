@@ -9,7 +9,7 @@ import WhySpaceSection from "@/components/home/WhySpaceSection";
 
 export default function HomePage() {
   return (
-    <main>
+    <main id="main-content">
       <HeroSection />
       <ProcessSection />
       <WhySpaceSection />

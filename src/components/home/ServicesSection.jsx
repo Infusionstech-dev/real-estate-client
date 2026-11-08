@@ -21,7 +21,14 @@ export default function ServicesSection() {
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {serviceCards.map((serviceCard, cardIndex) => (
-            <RevealOnScroll key={serviceCard.serviceTitle} delay={cardIndex * 150} className="h-full">
+            // On tablets the 3rd card sits alone, so it is centered
+            <RevealOnScroll
+              key={serviceCard.serviceTitle}
+              delay={cardIndex * 150}
+              className={`h-full ${
+                cardIndex === 2 ? "md:col-span-2 md:mx-auto md:w-1/2 lg:col-span-1 lg:w-full" : ""
+              }`}
+            >
               <article className="card-lift group flex h-full flex-col rounded-2xl bg-section-light p-3 shadow-[0_10px_30px_-12px_rgb(0_0_0/0.2)] ring-1 ring-black/5">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
                   <Image
