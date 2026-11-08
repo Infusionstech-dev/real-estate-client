@@ -84,3 +84,72 @@ export const whySpaceFeatures = [
       "From concept to completion, we provide end-to-end interior design and construction solutions, built entirely around your vision.",
   },
 ];
+
+export const serviceCards = [
+  {
+    serviceTitle: "Interior Design",
+    serviceImage: "/images/home/hero-boutique-concept.jpg",
+    serviceHref: "/services/interior-design",
+    serviceItems: [
+      "Apartment Interior Design",
+      "Luxury Home Interior",
+      "Corporate Office Interior",
+      "Restaurant & Cafes",
+      "2D Layout Design & 3D Visualization",
+    ],
+  },
+  {
+    serviceTitle: "Construction",
+    serviceImage: "/images/home/hero-sky-garden-lofts.jpg",
+    serviceHref: "/services/construction",
+    serviceItems: [
+      "Building Planning & Architectural Design",
+      "Structural Design & Consultation",
+      "Project Management",
+      "Apartment Project",
+      "Renovation & Extension Works",
+    ],
+  },
+  {
+    serviceTitle: "Property Sales & Marketing",
+    serviceImage: "/images/home/hero-minimalist-culinary.jpg",
+    serviceHref: "/services/property-sales",
+    serviceItems: [
+      "Apartment Sales",
+      "Commercial Property Marketing",
+      "Digital Marketing for Real Estate",
+      "Client Lead Generation",
+      "Commission Based Self Service",
+    ],
+  },
+];
+
+// projectLayout: "large" (big left card), "small", "wide" (two columns)
+export const portfolioProjects = [
+  {
+    projectTitle: "The Onyx Residence",
+    projectCategory: "Residential",
+    projectImage: "/images/home/hero-onyx-residence.jpg",
+    projectLayout: "large",
+  },
+  {
+    projectTitle: "Executive Hub",
+    projectImage: "/images/home/hero-executive-hub.jpg",
+    projectLayout: "small",
+  },
+  {
+    projectTitle: "Minimalist Culinary",
+    projectImage: "/images/home/hero-minimalist-culinary.jpg",
+    projectLayout: "small",
+  },
+  {
+    projectTitle: "Boutique Concept",
+    projectImage: "/images/home/hero-boutique-concept.jpg",
+    projectLayout: "small",
+  },
+  {
+    projectTitle: "Sky Garden Lofts",
+    projectImage: "/images/home/hero-sky-garden-lofts.jpg",
+    projectLayout: "wide",
+  },
+];
