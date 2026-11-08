@@ -92,7 +92,7 @@ export default function HeroSection() {
                   <p className="font-heading text-2xl text-gold sm:text-4xl">
                     {heroStat.statValue}
                   </p>
-                  <p className="mt-1 text-[10px] uppercase tracking-[0.12em] text-white/75 sm:text-xs sm:tracking-[0.2em]">
+                  <p className="mt-1 text-[10px] uppercase tracking-[0.06em] text-white/75 sm:text-xs sm:tracking-[0.2em]">
                     {heroStat.statLabel}
                   </p>
                 </div>
@@ -103,21 +103,28 @@ export default function HeroSection() {
       </div>
 
       {/* Slide dots */}
-      <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 gap-2">
+      <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2">
         {heroSlides.map((heroSlide, slideIndex) => {
           const isActiveSlide = slideIndex === activeSlideIndex;
 
           return (
+            // The button is bigger than the visible bar so it is easy to tap
             <button
               key={heroSlide.slideImage}
               type="button"
               onClick={() => setActiveSlideIndex(slideIndex)}
               aria-label={`Show photo ${slideIndex + 1}`}
               aria-current={isActiveSlide ? "true" : undefined}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
-                isActiveSlide ? "w-8 bg-gold" : "w-3 bg-white/40 hover:bg-white/70"
-              }`}
-            />
+              className="group flex h-6 min-w-6 items-center justify-center px-1"
+            >
+              <span
+                className={`h-1.5 rounded-full transition-all duration-500 ${
+                  isActiveSlide
+                    ? "w-8 bg-gold"
+                    : "w-3 bg-white/40 group-hover:bg-white/70"
+                }`}
+              />
+            </button>
           );
         })}
       </div>

@@ -6,7 +6,6 @@ export default function SiteLogo({ className = "" }) {
   return (
     <Link
       href="/"
-      aria-label="Space Interiors & Builders – home"
       className={`inline-flex items-center gap-3 ${className}`}
     >
       <svg
