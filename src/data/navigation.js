@@ -12,3 +12,12 @@ export const mainNavLinks = [
 // The footer shows the same 6 links as the navbar, split into two columns
 export const footerNavLinks = mainNavLinks.slice(0, 3);
 export const footerLegalLinks = mainNavLinks.slice(3);
+
+// Footer social icons. TODO: replace "#" with the client's real links/email
+export const footerSocialLinks = [
+  { socialLabel: "Email", socialHref: "#", socialIcon: "mail" },
+  { socialLabel: "Facebook", socialHref: "#", socialIcon: "facebook" },
+  { socialLabel: "Instagram", socialHref: "#", socialIcon: "instagram" },
+  { socialLabel: "Website", socialHref: "#", socialIcon: "website" },
+  { socialLabel: "LinkedIn", socialHref: "#", socialIcon: "linkedin" },
+];
