@@ -9,16 +9,6 @@ export const mainNavLinks = [
   { linkLabel: "Contact", linkHref: "/contact" },
 ];
 
-export const footerNavLinks = [
-  { linkLabel: "Home", linkHref: "/" },
-  { linkLabel: "Services", linkHref: "/services" },
-  { linkLabel: "Portfolio", linkHref: "/projects" },
-  { linkLabel: "Contact", linkHref: "/contact" },
-];
-
-export const footerLegalLinks = [
-  { linkLabel: "Privacy Policy", linkHref: "/privacy-policy" },
-  { linkLabel: "Terms of Service", linkHref: "/terms-of-service" },
-  { linkLabel: "Careers", linkHref: "/careers" },
-  { linkLabel: "Press Kit", linkHref: "/press-kit" },
-];
+// The footer shows the same 6 links as the navbar, split into two columns
+export const footerNavLinks = mainNavLinks.slice(0, 3);
+export const footerLegalLinks = mainNavLinks.slice(3);
