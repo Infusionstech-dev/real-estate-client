@@ -1,63 +1,12 @@
-"use client";
-
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import BackgroundSlideshow from "@/components/ui/BackgroundSlideshow";
 import Button from "@/components/ui/Button";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
 import { heroSlides, heroStats } from "@/data/home";
 
-const SLIDE_CHANGE_INTERVAL_MS = 3000;
-
 export default function HeroSection() {
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-
-  // Move to the next photo every 3 seconds, back to the first after the last
-  useEffect(() => {
-    const slideTimer = setInterval(() => {
-      setActiveSlideIndex(
-        (previousSlideIndex) => (previousSlideIndex + 1) % heroSlides.length
-      );
-    }, SLIDE_CHANGE_INTERVAL_MS);
-
-    return () => clearInterval(slideTimer);
-  }, [activeSlideIndex]); // restarts the timer when a dot is clicked
-
   return (
     <section className="relative flex min-h-[calc(100svh-5rem)] items-center overflow-hidden bg-section-dark">
-      {/* Background slideshow */}
-      <div className="absolute inset-0" aria-hidden="true">
-        {heroSlides.map((heroSlide, slideIndex) => {
-          const isActiveSlide = slideIndex === activeSlideIndex;
-
-          return (
-            <div
-              key={heroSlide.slideImage}
-              className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
-                isActiveSlide ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              {/* Slow zoom while the slide is visible (Ken Burns effect) */}
-              <div
-                className={`absolute inset-0 transition-transform duration-[6000ms] ease-out ${
-                  isActiveSlide ? "motion-safe:scale-110" : "scale-100"
-                }`}
-              >
-                <Image
-                  src={heroSlide.slideImage}
-                  alt=""
-                  fill
-                  sizes="100vw"
-                  priority={slideIndex === 0}
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          );
-        })}
-
-        {/* Dark overlay so the text stays readable */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
-      </div>
+      <BackgroundSlideshow slides={heroSlides} />
 
       {/* Content */}
       <div className="site-container relative grid w-full items-center gap-12 py-20 lg:grid-cols-[1.4fr_1fr]">
@@ -100,33 +49,6 @@ export default function HeroSection() {
             </li>
           ))}
         </ul>
-      </div>
-
-      {/* Slide dots */}
-      <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2">
-        {heroSlides.map((heroSlide, slideIndex) => {
-          const isActiveSlide = slideIndex === activeSlideIndex;
-
-          return (
-            // The button is bigger than the visible bar so it is easy to tap
-            <button
-              key={heroSlide.slideImage}
-              type="button"
-              onClick={() => setActiveSlideIndex(slideIndex)}
-              aria-label={`Show photo ${slideIndex + 1}`}
-              aria-current={isActiveSlide ? "true" : undefined}
-              className="group flex h-6 min-w-6 items-center justify-center px-1"
-            >
-              <span
-                className={`h-1.5 rounded-full transition-all duration-500 ${
-                  isActiveSlide
-                    ? "w-8 bg-gold"
-                    : "w-3 bg-white/40 group-hover:bg-white/70"
-                }`}
-              />
-            </button>
-          );
-        })}
       </div>
     </section>
   );
