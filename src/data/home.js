@@ -153,3 +153,27 @@ export const portfolioProjects = [
     projectLayout: "wide",
   },
 ];
+
+export const beforeAfterImages = {
+  beforeImage: "/images/home/before-after-before.jpg",
+  beforeAlt: "Living room under construction with bare concrete walls",
+  afterImage: "/images/home/before-after-after.jpg",
+  afterAlt: "The same living room after the interior renovation",
+};
+
+// Placeholder reviews copied from the Figma design.
+// Replace with real client names, quotes and photos (with permission) before launch.
+export const clientTestimonials = [
+  {
+    clientName: "Elena Vance",
+    clientRole: "Penthouse Owner",
+    testimonialQuote:
+      "SPACE didn't just build a home; they designed a sanctuary that perfectly reflects our personality. Their attention to material selection is unparalleled.",
+  },
+  {
+    clientName: "Julian Cross",
+    clientRole: "Developer, Apex Group",
+    testimonialQuote:
+      "Their construction management is flawless. The project was delivered on time and exceeded our expectations in every structural detail.",
+  },
+];
